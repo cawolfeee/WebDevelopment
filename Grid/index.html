@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    .container {
+      display: grid;
+      grid-template-areas:
+    "header header header"
+    "menu content content"
+    "menu footer people"
+    "menu footer people";
+      grid-template-columns: 1fr 3fr;
+      gap: 3px;
+      background-color: #d3c6fb;
+      padding: 5px;
+    }
+    .container div {
+      background-color: #ffffff;
+      padding: 10px;
+    }
+    .container div.header {
+      grid-area: header;
+      text-align: center;
+    }
+    .container div.menu {
+      grid-area: menu;
+    }
+    .container div.content {
+      grid-area: content;
+    }
+    .container div.people {
+      grid-area: people;
+    }
+    .container div.footer {
+      grid-area: footer;
+      text-align: center;
+    }
+  </style>
+</head>
+<body class="container">
+<div class="header">
+  <h2>The Lorax</h2>
+</div>
+<div class="menu">
+
+  <img src="https://mediaproxy.tvtropes.org/width/1200/https://static.tvtropes.org/pmwiki/pub/images/the_lorax_4.jpg" height="200" width="200" >
+<br>
+</div>
+<div class="content">
+  <h3>About The Lorax:</h3>
+  <p>The Lorax is a classic 1971 children's book by Dr. Seuss that serves as an environmental fable. It tells the story of a once-vibrant forest destroyed by the greed of an entrepreneur named the Once-ler, despite the warnings of the Lorax, a creature who "speaks for the trees."</p>
+</div>
+<div class="people">
+  <p><b><u>FUN FACT!</u></b></P>
+  <p>The Lorax is played by Danny Devito!</p>
+</div>
+<div class="footer">
+  <h4><u>What is the real meaning behind The Lorax by Dr Seuss?</u></h4>
+  <p>The Lorax is a story about how being too greedy for money and "stuff" can lead to the destruction of nature. It shows that if we don't speak up for the environment, our forests and animals could disappear forever. The book ends with a hopeful message that it only takes one person who cares to help the world start growing back again.</p>
+</div>
+</body>
+</html>
+
