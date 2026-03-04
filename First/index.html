@@ -5,7 +5,9 @@
     <title>Carson</title>
 </head>
 <body>
+<div class="beginning">
     <h1 style="text-align: center">Hello World</h1>
+</div>
     <h2>This is an h2</h2>
     <h3>This is an h3</h3>
     <h4>This is an h4</h4>
@@ -23,10 +25,25 @@
 </body>
 
 <style>
-    h3 {
+    h1 {
         color: dodgerblue;
         font-size: 50px;
+    }
 
+         /* 1. We move the centering here so we can clean up the HTML */
+     .beginning h1 {
+         font-size: 50px;
+         text-align: center;
+         /* The animation lasts 12 seconds and repeats forever */
+         animation: colorCycle 12s infinite;
+     }
+
+    /* 2. Define the exact points where colors change */
+    @keyframes colorCycle {
+        0%, 24%   { color: dodgerblue; } /* 0-3 seconds */
+        25%, 49%  { color: #0800ff; }        /* 3-6 seconds */
+        50%, 74%  { color: #560ed3; }     /* 6-9 seconds */
+        75%, 100% { color: #6300a8; }      /* 9-12 seconds */
     }
 
 </style>
