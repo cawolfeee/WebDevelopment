@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MadLibs</title>
+</head>
+<body>
+
+<h1>MadLibs</h1>
+
+<div id="entry">
+    <p>Adjective:<input type="text" id="adjective1"></p>
+    <p>Place:<input type="text" id="place1"></p>
+    <p>Animal:<input type="text" id="animal1"></p>
+    <p>Noun:<input type="text" id="noun1"></p>
+
+    <p>Animal:<input type="text" id="animal2"></p>
+    <p>Verb:<input type="text" id="verb1"></p>
+    <p>Clothing Item:<input type="text" id="clothing1"></p>
+
+    <p>Verb ending in -ing:<input type="text" id="verbing1"></p>
+    <p>Animal:<input type="text" id="animal3"></p>
+    <p>Adjective:<input type="text" id="adjective2"></p>
+
+    <p>Person:<input type="text" id="person1"></p>
+    <p>Adjective:<input type="text" id="adjective3"></p>
+
+    <p>Verb ending in -ing:<input type="text" id="verbing2"></p>
+    <p>Animal:<input type="text" id="animal4"></p>
+    <p>Verb past tense:<input type="text" id="verbpast1"></p>
+    <button onclick="madlibs()">Submit</button>
+</div>
+
+<div id = "results">
+    <h2>Results</h2>
+    <p>One <span id="adjectivefirst">(adjective)</span> morning, I walked into a <span id="placefirst">(place)</span> and saw a <span id="animalfirst">(animal)</span> sitting on a <span id="nounfirst">(noun)</span>.
+        All of the sudden, the <span id="animal2">(animal)</span> began to <span>(verb)</span> while wearing a <span>(clothing item)</span>.
+        Everyone around me started <span id="verbingfirst">(verb ending in -ing)</span> because the <span id="animalsecond">(animal)</span> looked so <span id="adjectivesecond">(adjective)</span>.
+        Then <span id="personfirst">(person)</span> ran into the room and shouted an <span id="adjectivethird">(adjective)</span> word.
+        By the end of the day, we were all <span id="verbingsecond">(verb ending in -ing)</span> about the <span id="animalthird">(animal)</span> that had completely <span id="verbpastfirst">(verb past tense)</span> our day.
+    </p>
+</div>
+</body>
+    <script>
+        function madlibs(){
+            console.log("submit")
+            let adjectivefirst = document.getElementById("adjective1")
+            document.getElementById("adjectivefirst").innerHTML = adjective1.value;
+            console.log(adjectivefirst);
+            console.log(adjectivefirst.value);
+
+        }
+    </script>
+
+
+</style>
+</html>
