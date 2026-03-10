@@ -31,23 +31,66 @@
     <button onclick="madlibs()">Submit</button>
 </div>
 
-<div id = "results">
+<div id = "results" style="display: none">
     <h2>Results</h2>
     <p>One <span id="adjectivefirst">(adjective)</span> morning, I walked into a <span id="placefirst">(place)</span> and saw a <span id="animalfirst">(animal)</span> sitting on a <span id="nounfirst">(noun)</span>.
-        All of the sudden, the <span id="animal2">(animal)</span> began to <span>(verb)</span> while wearing a <span>(clothing item)</span>.
-        Everyone around me started <span id="verbingfirst">(verb ending in -ing)</span> because the <span id="animalsecond">(animal)</span> looked so <span id="adjectivesecond">(adjective)</span>.
+        All of the sudden, the <span id="animalsecond">(animal)</span> began to <span id="verbfirst">(verb)</span> while wearing a <span id="clothingfirst">(clothing item)</span>.
+        Everyone around me started <span id="verbingfirst">(verb ending in -ing)</span> because the <span id="animalthird">(animal)</span> looked so <span id="adjectivesecond">(adjective)</span>.
         Then <span id="personfirst">(person)</span> ran into the room and shouted an <span id="adjectivethird">(adjective)</span> word.
-        By the end of the day, we were all <span id="verbingsecond">(verb ending in -ing)</span> about the <span id="animalthird">(animal)</span> that had completely <span id="verbpastfirst">(verb past tense)</span> our day.
-    </p>
+        By the end of the day, we were all <span id="verbingsecond">(verb ending in -ing)</span> about the <span id="animalfourth">(animal)</span> that had completely <span id="verbpastfirst">(verb past tense)</span> our day.
+
 </div>
 </body>
     <script>
         function madlibs(){
+            document.getElementById("entry").style.display = "none";
             console.log("submit")
             let adjectivefirst = document.getElementById("adjective1")
-            document.getElementById("adjectivefirst").innerHTML = adjective1.value;
-            console.log(adjectivefirst);
-            console.log(adjectivefirst.value);
+            document.getElementById("adjectivefirst").innerHTML = adjectivefirst.value;
+         //   console.log(adjectivefirst);
+         //   console.log(adjectivefirst.value);
+            let placefirst = document.getElementById("place1")
+            document.getElementById("placefirst").innerHTML = placefirst.value;
+
+            let animalfirst = document.getElementById("animal1")
+            document.getElementById("animalfirst").innerHTML = animalfirst.value;
+
+            let nounfirst = document.getElementById("noun1")
+            document.getElementById("nounfirst").innerHTML = nounfirst.value;
+
+            let animalsecond = document.getElementById("animal2")
+            document.getElementById("animalsecond").innerHTML = animalsecond.value;
+
+            let verbfirst = document.getElementById("verb1")
+            document.getElementById("verbfirst").innerHTML = verbfirst.value;
+
+            let clothingfirst = document.getElementById("clothing1")
+            document.getElementById("clothingfirst").innerHTML = clothingfirst.value;
+
+            let verbingfirst = document.getElementById("verbing1")
+            document.getElementById("verbingfirst").innerHTML = verbingfirst.value;
+
+            let animalthird = document.getElementById("animal3")
+            document.getElementById("animalthird").innerHTML = animalthird.value;
+
+            let adjectivesecond = document.getElementById("adjective2")
+            document.getElementById("adjectivesecond").innerHTML = adjectivesecond.value;
+
+            let personfirst = document.getElementById("person1")
+            document.getElementById("personfirst").innerHTML = personfirst.value;
+
+            let adjectivethird = document.getElementById("adjective3")
+            document.getElementById("adjectivethird").innerHTML = adjectivethird.value;
+
+            let verbingsecond = document.getElementById("verbing2")
+            document.getElementById("verbingsecond").innerHTML = verbingsecond.value;
+
+            let animalfourth = document.getElementById("animal4")
+            document.getElementById("animalfourth").innerHTML = animalfourth.value;
+
+            let verbpastfirst = document.getElementById("verbpast1")
+            document.getElementById("verbpastfirst").innerHTML = verbpastfirst.value;
+            document.getElementById("results").style.display = "block";
 
         }
     </script>
