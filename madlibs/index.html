@@ -28,9 +28,8 @@
     <p>Verb ending in -ing:<input type="text" id="verbing2"></p>
     <p>Animal:<input type="text" id="animal4"></p>
     <p>Verb past tense:<input type="text" id="verbpast1"></p>
-    <button id="submit" onclick="madlibs()"disabled>Submit</button>
+    <button onclick="madlibs()">Submit</button>
 </div>
-
 
 <div id = "results" style="display: none">
     <h2>Results</h2>
@@ -48,14 +47,16 @@
     text-decoration-line: underline ;
 }
     </style>
+
     <script>
         function madlibs(){
+            let inputs = "";
             document.getElementById("entry").style.display = "none";
             console.log("submit")
+
             let adjectivefirst = document.getElementById("adjective1")
             document.getElementById("adjectivefirst").innerHTML = adjectivefirst.value;
-         //   console.log(adjectivefirst);
-         //   console.log(adjectivefirst.value);
+
             let placefirst = document.getElementById("place1")
             document.getElementById("placefirst").innerHTML = placefirst.value;
 
@@ -97,14 +98,18 @@
 
             let verbpastfirst = document.getElementById("verbpast1")
             document.getElementById("verbpastfirst").innerHTML = verbpastfirst.value;
+
+
             document.getElementById("results").style.display = "block";
 
-            if(adjectivefirst.value == school){
-                document.getElementById("entry").style.display = "none";
+            if(adjectivefirst.value != "" && placefirst.value != ""){
                 document.getElementById("results").style.display = "block";
+                document.getElementById("entry").style.display = "none";
+            }
+            else{
+                alert("Please enter values for every input!!")
 
             }
-
         }
     </script>
 
