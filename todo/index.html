@@ -9,36 +9,65 @@
 <h1 style="text-align:center"><u><b>To Do:</b></u></h1>
 <h3>Add Task</h3>
 <input id="task" type="text">
-<button id="add">Add</button>
+<button onclick="new_task()" id="add">Add</button>
 
 <h2>tasks</h2>
 <div id="task_list">
-  <div class = "task"><input type="checkbox" name="task" value="task1">Task 1
-  <div class = "task"><input type="checkbox" name="task" value="task1">Task 2
-    <div class = "task"><input type="checkbox" name="task" value="task1">Task 3
-
-    </div>
-  </div>
+<!--  <div class = "task"><input type="checkbox" name="task" value="task1">Task 1</div>-->
+<!--  <div class = "task"><input type="checkbox" name="task" value="task1">Task 2</div>-->
+<!--  <div class = "task"><input type="checkbox" name="task" value="task1">Task 3</div>-->
 </div>
 
-<ol type="1">
-  <li>This</li>
-  <li>Will</li>
-  <li>Be</li>
-  <li>Something</li>
-  <li>Cool</li>
-  <li>Later</li>
-  <li>On</li>
 
-</ol>
 
 </body>
 
 <style>
+
    body{
      background-color: #cfb1ff;
-
    }
 
 </style>
+
+<script>
+
+  function new_task(){
+    let task_input = document.getElementById("task");
+
+    let task_name = document.getElementById("task").value;
+    console.log(task_name);
+    if (task_name == "") {
+        return false
+      }
+
+
+    let new_div = document.createElement("div");
+    document.getElementById("task_list").appendChild(new_div);
+
+
+    let checkbox = document.createElement("input");
+    checkbox.type = "checkbox";
+    new_div.appendChild(checkbox)
+
+    let span = document.createElement("span");
+    new_div.appendChild(span);
+    new_div.setAttribute("class", "task");
+    span.innerText = task_name;
+
+    task_input.value = "";
+
+
+
+    console.log(new_div);
+    console.log(document.getElementById("task"));
+
+
+
+// MAKE SMTH HAPPEN FOR HW WHEN U CHECK THE BOX!!!
+
+  }
+
+
+</script>
 </html>
