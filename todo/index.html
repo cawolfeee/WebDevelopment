@@ -8,7 +8,7 @@
 
 <h1 style="text-align:center"><u><b>To Do:</b></u></h1>
 <h3>Add Task</h3>
-<input id="task" type="text">
+<input id="task" type="text" placeholder="Enter a task here">
 <button onclick="new_task()" id="add">Add</button>
 
 <h2>tasks</h2>
@@ -24,8 +24,20 @@
 
 <style>
 
+    input[type='checkbox']: checked +span; {
+        color: #0031d1
+    ;
+    }
+
    body{
      background-color: #cfb1ff;
+   }
+
+   div.task:has(input[type="checkbox"]):checked {
+       bottom: background-color: darkslategrey;
+
+   }
+
    }
 
 </style>
@@ -64,17 +76,30 @@
 
     task_input.value = "";
 
+    <span class = "task name">
 
+    </span>
 
     console.log(new_div);
     console.log(document.getElementById("task"));
 
 
 
-// MAKE SMTH HAPPEN FOR HW WHEN U CHECK THE BOX!!!
+let trash= document.createElement('Span');
+trash.className = "trash";
+trash. innerHTML = "Delete";
+trash.style.float = "right";
+trash.addeventListener("click", delete_task);
+new_div.appendChild(trash);
 
-  }
 
+task_input.value = "";
+task_input.focus();
+    }
+
+    function delete_task(){
+      console.log("delete_task");
+    }
 
 </script>
 </html>
