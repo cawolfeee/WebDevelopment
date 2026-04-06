@@ -8,14 +8,14 @@
 
 <h1 style="text-align:center"><u><b>To Do:</b></u></h1>
 <h3>Add Task</h3>
-<input id="task" type="text" placeholder="Enter a task here">
+<input id="task" type="text">
 <button onclick="new_task()" id="add">Add</button>
 
 <h2>tasks</h2>
 <div id="task_list">
-<!--  <div class = "task"><input type="checkbox" name="task" value="task1">Task 1</div>-->
-<!--  <div class = "task"><input type="checkbox" name="task" value="task1">Task 2</div>-->
-<!--  <div class = "task"><input type="checkbox" name="task" value="task1">Task 3</div>-->
+    <!--  <div class = "task"><input type="checkbox" name="task" value="task1">Task 1</div>-->
+    <!--  <div class = "task"><input type="checkbox" name="task" value="task1">Task 2</div>-->
+    <!--  <div class = "task"><input type="checkbox" name="task" value="task1">Task 3</div>-->
 </div>
 
 
@@ -24,82 +24,67 @@
 
 <style>
 
-    input[type='checkbox']: checked +span; {
-        color: #0031d1
-    ;
+    body{
+        background-color: #cfb1ff;
     }
-
-   body{
-     background-color: #cfb1ff;
-   }
-
-   div.task:has(input[type="checkbox"]):checked {
-       bottom: background-color: darkslategrey;
-
-   }
-
-   }
 
 </style>
 
 <script>
 
-  function new_task(){
-    let task_input = document.getElementById("task");
+    function new_task(){
+        let task_input = document.getElementById("task");
 
-    let task_name = document.getElementById("task").value;
-    console.log(task_name);
-    if (task_name == "") {
-        return false
-      }
+        let task_name = document.getElementById("task").value;
+        console.log(task_name);
+        if (task_name == "") {
+            return false
+        }
 
 
-    let new_div = document.createElement("div");
-    document.getElementById("task_list").appendChild(new_div);
+        let new_div = document.createElement("div");
+        document.getElementById("task_list").appendChild(new_div);
 
-    let checkbox = document.createElement("input");
-    checkbox.setAttribute("onchange", "function strike_(box) {\n" +
-        "        if (box.checked) {\n" +
-        "            box.parentElement.querySelector('span').style.textDecoration = 'line-through';\n" +
-        "        } else {\n" +
-        "            box.parentElement.querySelector('span').style.textDecoration = 'none';\n" +
-        "        }\n" +
-        "    }\n" +
-        "    strike_(this)")
-    checkbox.type = "checkbox";
-    new_div.appendChild(checkbox)
+        let checkbox = document.createElement("input");
+        checkbox.setAttribute("onchange", "function strike_(box) {\n" +
+            "        if (box.checked) {\n" +
+            "            box.parentElement.querySelector('span').style.textDecoration = 'line-through';\n" +
+            "        } else {\n" +
+            "            box.parentElement.querySelector('span').style.textDecoration = 'none';\n" +
+            "        }\n" +
+            "    }\n" +
+            "    strike_(this)")
+        checkbox.type = "checkbox";
+        new_div.appendChild(checkbox)
 
-    let span = document.createElement("span");
-    new_div.appendChild(span);
-    new_div.setAttribute("class", "task");
-    span.innerText = task_name;
+        let span = document.createElement("span");
+        new_div.appendChild(span);
+        new_div.setAttribute("class", "task");
+        span.innerText = task_name;
 
-    task_input.value = "";
-
-    <span class = "task name">
-
-    </span>
-
-    console.log(new_div);
-    console.log(document.getElementById("task"));
+        task_input.value = "";
 
 
 
-let trash= document.createElement('Span');
-trash.className = "trash";
-trash. innerHTML = "Delete";
-trash.style.float = "right";
-trash.addeventListener("click", delete_task);
-new_div.appendChild(trash);
+        console.log(new_div);
+        console.log(document.getElementById("task"));
 
+        let trash = document.createElement("span");
+        trash.className = "trash"
+        trash.innerText = "🗑️";
+        trash.style.float="right";
+        trash.addEventListener("click", delete_task);
+        new_div.appendChild(trash);
 
-task_input.value = "";
-task_input.focus();
+        task_input.value = ""
+        task_input.focus();
     }
 
-    function delete_task(){
-      console.log("delete_task");
+    function delete_task(e) {
+        console.log(e);
+
     }
+
 
 </script>
 </html>
