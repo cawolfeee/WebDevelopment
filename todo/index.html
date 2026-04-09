@@ -28,6 +28,10 @@
         background-color: #cfb1ff;
     }
 
+    #task_list > div {
+        margin: 10px;
+    }
+
 </style>
 
 <script>
@@ -63,7 +67,7 @@
         let task_name = document.getElementById("task").value;
         if (task_name === "") {
             return false
-
+        }
 
     function new_task(){
         let task_input = document.getElementById("task");
@@ -73,7 +77,29 @@
         if (task_name == "") {
             return false
         }
-l
+
+        let now = new Date();
+        setCookie(now.toUTCString(), task_name, 15);
+
+
+        console.log(task_name);
+        let current_cookie = getCookie("task");
+        setCookie("task", current_cookie + "|" + task_name, 15);
+
+        let existing = getCookie("tasks");
+        let updated = existing === ""? task_name : existing + "|" + task_name;
+        setCookie("tasks", updated, 15);
+
+
+        if (existing === "") {
+        existing = task_name;
+        } else {
+            existing = existing + " " + task_name;
+        }
+    }
+
+        console.log(task_name);
+        setCookie("task_name", task_name, 15);
 
         let new_div = document.createElement("div");
         document.getElementById("task_list").appendChild(new_div);
