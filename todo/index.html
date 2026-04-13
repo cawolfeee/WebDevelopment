@@ -69,25 +69,18 @@
             return false
         }
 
-    function new_task(){
-        let task_input = document.getElementById("task");
-
-        let task_name = document.getElementById("task").value;
-        console.log(task_name);
-        if (task_name == "") {
-            return false
-        }
 
         let now = new Date();
-        setCookie(now.toUTCString(), task_name, 15);
+        // setCookie(now.toUTCString(), task_name, 15);
+        // setCookie("task", getCookie("task") + "|" + task_name, 15);
 
-
-        console.log(task_name);
-        let current_cookie = getCookie("task");
-        setCookie("task", current_cookie + "|" + task_name, 15);
+        // console.log(task_name);
+        // let current_cookie = getCookie("task");
+        // setCookie("task", current_cookie + "|" + task_name, 15);
 
         let existing = getCookie("tasks");
         let updated = existing === ""? task_name : existing + "|" + task_name;
+        console.log(updated);
         setCookie("tasks", updated, 15);
 
 
@@ -96,10 +89,6 @@
         } else {
             existing = existing + " " + task_name;
         }
-    }
-
-        console.log(task_name);
-        setCookie("task_name", task_name, 15);
 
         let new_div = document.createElement("div");
         document.getElementById("task_list").appendChild(new_div);
@@ -123,8 +112,6 @@
 
         task_input.value = "";
 
-
-
         console.log(new_div);
         console.log(document.getElementById("task"));
 
@@ -141,6 +128,9 @@
 
     function delete_task(e) {
         e.target.parentElement.remove();
+
+        let current_cookie = getCookie("task");
+        console.log(current_cookie);
 
     }
 
