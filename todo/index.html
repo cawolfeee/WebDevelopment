@@ -9,7 +9,15 @@
     <h1 style="text-align:center"><u><b>To Do:</b></u></h1>
     <h3>Add Task</h3>
     <input id="task" type="text" placeholder="add task here...">
-    <button id="add">Add</button>
+    <input id="date" type="date" placeholder="add date here...">
+    <select id="category">
+        <option value="school">🎒 School</option>
+        <option value="personal">🌸 Personal</option>
+        <option value="work">💼 Work</option>
+        <option value="other">✨ Other</option>
+    </select>
+    <button id="add">Confirm</button>
+
 
     <h2>tasks</h2>
     <div id="task_list">
@@ -32,8 +40,12 @@
 </style>
 
 <script>
+
     document.getElementById("add").onclick = () => {
-        new_task(document.getElementById("task").value);
+        const taskName = document.getElementById("task").value;
+        const taskDate = document.getElementById("date").value;
+        const taskCategory = document.getElementById("category").value; // ADD THIS LINE
+        new_task(taskName, taskDate, taskCategory);
     };
 
     function setCookie(cname, cvalue, exdays) {
@@ -61,9 +73,9 @@
     }
 
 
-    function new_task(newtask) {
+    function new_task(newtask, taskDate, taskCategory) {
         let task_input = document.getElementById('task');
-
+        let date_input = document.getElementById('date');
 
         let task_name = newtask;
         if (task_name === "") {
@@ -71,13 +83,10 @@
         }
 
 
-        let now = new Date();
-        // setCookie(now.toUTCString(), task_name, 15);
-        // setCookie("task", getCookie("task") + "|" + task_name, 15);
+        task_input.value = "";
+        task_input.focus();
 
-        // console.log(task_name);
-        // let current_cookie = getCookie("task");
-        // setCookie("task", current_cookie + "|" + task_name, 15);
+
 
         let existing = getCookie("tasks");
         let updated = existing === ""? task_name : existing + "|" + task_name;
@@ -92,6 +101,17 @@
         }
 
         let new_div = document.createElement("div");
+
+        const categoryColors = {
+            school: "#aed6f1",
+            personal: "#f9a8d4",
+            work: "#86efac",
+            other: "#fde68a"
+        };
+        new_div.style.backgroundColor = categoryColors[taskCategory] || "#ffffff";
+        new_div.style.borderRadius = "8px";
+        new_div.style.padding = "5px";
+
         document.getElementById("task_list").appendChild(new_div);
 
         let checkbox = document.createElement("input");
@@ -110,6 +130,14 @@
         new_div.appendChild(span);
         new_div.setAttribute("class", "task");
         span.innerText = task_name;
+        if (taskDate) {
+            let date_span = document.createElement("span");
+            date_span.innerText = " — " + taskDate;
+            date_span.style.color = "#5a3d8a";
+            date_span.style.fontSize = "0.9em";
+            new_div.appendChild(date_span);
+        }
+
 
         task_input.value = "";
 
@@ -123,13 +151,10 @@
         trash.addEventListener("click", delete_task);
         new_div.appendChild(trash);
 
-        task_input.value = ""
-        // task_input.focus();
-
 
         console.log(new_div);
         console.log(task_input.value);
-
+        date_input.value = "";  // <-- ADD HERE
     }
 
     function saved_task(newtask) {
@@ -197,7 +222,7 @@
 
 
     for(let i = 0; i < current_cookie.length; i = i + 1) {
-        new_task(current_cookie[i]);
+        saved_task(current_cookie[i]);
     }
 
 
