@@ -6,25 +6,19 @@
 </head>
 
 <body>
-    <h1 style="text-align:center"><u><b>To Do:</b></u></h1>
-    <h3>Add Task</h3>
-    <input id="task" type="text" placeholder="add task here...">
-    <input id="date" type="date" placeholder="add date here...">
-    <select id="category">
-        <option value="school">🎒 School</option>
-        <option value="personal">🌸 Personal</option>
-        <option value="sports">🎾 Sport</option>
-        <option value="other">✨ Other</option>
-    </select>
-    <button id="add">Confirm</button>
+<h1 style="text-align:center"><u><b>To Do:</b></u></h1>
+<h3>Add Task</h3>
+<input id="task" type="text" placeholder="add task here...">
+<input id="date" type="date" placeholder="add date here...">
+<button id="add">Confirm</button>
 
 
-    <h2>tasks</h2>
-    <div id="task_list">
-        <!--  <div class = "task"><input type="checkbox" name="task" value="task1">Task 1</div>-->
-        <!--  <div class = "task"><input type="checkbox" name="task" value="task1">Task 2</div>-->
-        <!--  <div class = "task"><input type="checkbox" name="task" value="task1">Task 3</div>-->
-    </div>
+<h2>tasks</h2>
+<div id="task_list">
+    <!--  <div class = "task"><input type="checkbox" name="task" value="task1">Task 1</div>-->
+    <!--  <div class = "task"><input type="checkbox" name="task" value="task1">Task 2</div>-->
+    <!--  <div class = "task"><input type="checkbox" name="task" value="task1">Task 3</div>-->
+</div>
 
 </body>
 
@@ -40,12 +34,10 @@
 </style>
 
 <script>
-
     document.getElementById("add").onclick = () => {
         const taskName = document.getElementById("task").value;
         const taskDate = document.getElementById("date").value;
-        const taskCategory = document.getElementById("category").value; // ADD THIS LINE
-        new_task(taskName, taskDate, taskCategory);
+        new_task(taskName, taskDate);
     };
 
     function setCookie(cname, cvalue, exdays) {
@@ -73,7 +65,7 @@
     }
 
 
-    function new_task(newtask, taskDate, taskCategory) {
+    function new_task(newtask, taskDate) {
         let task_input = document.getElementById('task');
         let date_input = document.getElementById('date');
 
@@ -95,23 +87,12 @@
 
 
         if (existing === "") {
-        existing = task_name;
+            existing = task_name;
         } else {
             existing = existing + " " + task_name;
         }
 
         let new_div = document.createElement("div");
-
-        const categoryColors = {
-            school: "#aed6f1",
-            personal: "#f9a8d4",
-            work: "#86efac",
-            other: "#fde68a"
-        };
-        new_div.style.backgroundColor = categoryColors[taskCategory] || "#ffffff";
-        new_div.style.borderRadius = "8px";
-        new_div.style.padding = "5px";
-
         document.getElementById("task_list").appendChild(new_div);
 
         let checkbox = document.createElement("input");
@@ -130,6 +111,7 @@
         new_div.appendChild(span);
         new_div.setAttribute("class", "task");
         span.innerText = task_name;
+
         if (taskDate) {
             let date_span = document.createElement("span");
             date_span.innerText = " — " + taskDate;
@@ -154,7 +136,7 @@
 
         console.log(new_div);
         console.log(task_input.value);
-        date_input.value = "";  // <-- ADD HERE
+
     }
 
     function saved_task(newtask) {
@@ -186,8 +168,18 @@
         new_div.appendChild(span);
         new_div.setAttribute("class", "task");
         span.innerText = task_name;
+        if (taskDate) {
+            let date_span = document.createElement("span");
+            date_span.innerText = " — " + taskDate;
+            date_span.style.color = "#5a3d8a";
+            date_span.style.fontSize = "0.9em";
+            new_div.appendChild(date_span);
+        }
+
+
 
         task_input.value = "";
+        date_input.value = "";
 
         console.log(new_div);
         console.log(document.getElementById("task"));
@@ -206,6 +198,7 @@
         console.log(new_div);
         console.log(task_input.value);
 
+        date_input.value = "";
     }
 
     function delete_task(e) {
