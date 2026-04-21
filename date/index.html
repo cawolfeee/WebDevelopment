@@ -3,25 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <title>Date</title>
+    <style>
+        body {
+            background-color: #db9cff;
+            color: white;
+            font-family: sans-serif;
+        }
+    </style>
 </head>
 <body>
-  <h1>Date:</h1>
-    <p>Days Left: <span id="countdown"></span></p>
-</body>
+<h1>Date:</h1>
+<p>Days Left: <span id="countdown"></span></p>
 
 <script>
-  let now = new Date();
-  console.log(now)
-  console.log("Now:" + now.getTime())
-
-  let then = new Date("12/31/26  10:00:00");
-  console.log("Then:" + then);
-
-  let diffInMs = then - now;
-  let daysLeft = Math.floor(diffInMs / (1000 * 60 * 60 * 24));
-
-  document.getElementById("countdown").innerHTML = daysLeft;
-
+    let now = new Date();
+    let then = new Date("12/31/26 10:00:00");
+    let diffInMs = then - now;
+    let daysLeft = Math.floor(diffInMs / (1000 * 60 * 60 * 24));
+    document.getElementById("countdown").innerHTML = daysLeft;
 </script>
-
+</body>
 </html>
