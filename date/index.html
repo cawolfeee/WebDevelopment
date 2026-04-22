@@ -5,22 +5,56 @@
     <title>Date</title>
     <style>
         body {
-            background-color: #db9cff;
+            background-color: #cf9cff;
             color: white;
             font-family: sans-serif;
+        }
+
+        h1 {
+            font-size:50px;
+            color: #ffffff;
+            font-family: "Times New Roman", Times, serif;
+            text-align: center;
+            border:ridge purple thick;
+            border-block-width: 8px;
+            border-block-color: #b291ec;
         }
     </style>
 </head>
 <body>
-<h1>Date:</h1>
-<p>Days Left: <span id="countdown"></span></p>
+<h1>Countdown to Birthday</h1>
+<p>My birthday is in: <span id="days"></span> days and <span id="hours"></span> hours <span id="minutes"></span> minutes and <span id="seconds"></span> seconds</p>
+</body>
 
 <script>
-    let now = new Date();
-    let then = new Date("12/31/26 10:00:00");
-    let diffInMs = then - now;
-    let daysLeft = Math.floor(diffInMs / (1000 * 60 * 60 * 24));
-    document.getElementById("countdown").innerHTML = daysLeft;
+    count();
+    setInterval(count, 1000);
+
+    function count() {
+
+
+        let now = new Date();
+        console.log(now)
+        console.log("NOW: " + now);
+
+        let then = new Date("12/31/26 10:00:00");
+        console.log("THEN: " + then)
+
+        console.log((then - now) / 1000 / 60 / 60 / 24)
+
+        let diffInMs = then - now;
+        let daysLeft = Math.floor(diffInMs / (1000 * 60 * 60 * 24));
+        let hoursLeft = Math.floor(diffInMs / (1000 * 60 * 60)) % 24;
+        let minutesLeft = Math.floor(diffInMs / (1000 * 60)) % 60;
+        let secondsLeft = Math.floor(diffInMs / (1000)) % 60;
+
+        document.getElementById("days").innerText = daysLeft;
+        document.getElementById("hours").innerText = hoursLeft;
+        document.getElementById("minutes").innerText = minutesLeft;
+        document.getElementById("seconds").innerText = secondsLeft;
+
+
+    }
 </script>
-</body>
+
 </html>
