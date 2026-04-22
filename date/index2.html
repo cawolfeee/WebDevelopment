@@ -38,24 +38,24 @@
 
 <script>
   let targetDate = null;
-  // null means that if there isn't a  date yet nothing will happen
+  // note to self: null means that if there isn't a  date yet nothing will happen
 
   document.getElementById("add").addEventListener("click", function() {
     let eventName = document.getElementById("event").value;
     let dateValue = document.getElementById("date").value;
 
-    // / stops if fields are empty
+    // this below basically stops if the input fields are empty
     if (!eventName || !dateValue) {
       alert("Please enter both an event name and a date!");
       return;
     }
 
     document.getElementById("eventLabel").innerText = eventName;
-    // updates event name
+    // this updates event name
     targetDate = new Date(dateValue + "T00:00:00");
-    // converts date
+    // this converts date
     document.getElementById("countdownText").style.display = "block";
-   //shows countdown
+   // and this shows the countdown
   });
 
   setInterval(count, 1000);
