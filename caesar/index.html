@@ -27,9 +27,17 @@
         for(let i = 0; i < plaintext.length; i=i+1){
             let charLocation = chars.indexOf(plaintext[i])
             let newCharLocation= charLocation + key;
+
+            newCharLocation = newCharLocation % chars.length;
             let newChar = chars[newCharLocation];
-            console.log(plaintext[i], charLocation, newCharLocation, newChar);
+            console.log(key[i], charLocation, newCharLocation, newChar);
             ciphertext = ciphertext + newChar;
+
+            if (newCharLocation === -1){
+                ciphertext = ciphertext + plaintext[i];
+            } else{
+                ciphertext = ciphertext + newChar;
+            }
         }
 
         document.getElementById("ciphertext").innerText = ciphertext;
