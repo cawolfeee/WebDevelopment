@@ -2,19 +2,19 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Mirrored Cipher</title>
+    <title>Mirror Caesar Cipher</title>
 </head>
 <body>
 
-<h1>Mirrored Cipher</h1>
-<p><label>Enter Message: <input type="text" id="plaintext" value="hello"></label></p>
+<h1>Mirror Caesar Cipher</h1>
+<p><label>Enter your message: <input type="text" id="plaintext" placeholder=""></label></p>
+<p><label>Enter key: <input type="number" id="key" placeholder=""></label></p>
 <p><button onclick="encode()">Encode</button></p>
 <p id="result"></p>
 
 <script>
     const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    const shift = 2;
-    // const is a keyword used to declare variables that cannot be reassigned
+    const secret_key = 5;
 
     function mirrorLetter(letter) {
         let i = chars.indexOf(letter);
@@ -23,12 +23,18 @@
 
     function encode() {
         let plaintext = document.getElementById("plaintext").value.toUpperCase();
-        let ciphertext = "";
+        let key = parseInt(document.getElementById("key").value);
 
+        if (key !== secret_key) {
+            document.getElementById("result").innerText = "Wrong key...sorry!";
+            return;
+        }
+
+        let ciphertext = "";
         for (let i = 0; i < plaintext.length; i++) {
             let letter = plaintext[i];
             let mirrored = mirrorLetter(letter);
-            let index = (chars.indexOf(mirrored) + shift) % 26;
+            let index = (chars.indexOf(mirrored) + secret_key) % 26;
             ciphertext += chars[index];
         }
 
