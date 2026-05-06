@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dog API</title>
+</head>
+<body>
+<h1>Dog API</h1>
+<img id="dog-img" src="" alt="Random Dog" width="400">
+</body>
+<script>
+  let url = "https://dog.ceo/api/breeds/image/random"
+
+  fetch(url).then(function(response) {
+            return response.json()  // parse the JSON from the response
+          })
+          .then(function(data) {
+            console.log(data)  // { message: "https://...", status: "success" }
+            document.getElementById("dog-img").src = data.message
+          })
+</script>
+</html>
