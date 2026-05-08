@@ -5,23 +5,48 @@
   <title>Dog API</title>
 </head>
 <body>
-<h1>Dog API</h1>
-<img id="dog-img" src="" alt="Random Dog" width="400">
+
+<style>
+  body{
+    background-color: #cfb1ff;
+  }
+</style>
+
+<h1>Animal API</h1>
+
+<select id="animal-select">
+  <option value="https://dog.ceo/api/breeds/image/random">Dog</option>
+  <option value="https://randomfox.ca/floof/">Fox</option>
+  <option value="https://api.thecatapi.com/v1/images/search">Cat</option>
+</select>
+
+<br><br>
+
+<img id="animal-img" src="" alt="Random Animal" width="400">
 
 <script>
-  let url = "https://dog.ceo/api/breeds/image/random"
+  let select = document.getElementById("animal-select")
+  let img = document.getElementById("animal-img")
 
-  fetch(url)
-          .then(function(response) {
-            return response.json()
-          })
-          .then(function(data) {
-            console.log(data)
-            document.getElementById("dog-img").src = data.message
-          })
-          .catch(function(error) {
-            console.log("Fetch error:", error)
-          })
+  function fetchAnimal() {
+    let url = select.value
+
+    fetch(url)
+            .then(function(response) {
+              return response.json()
+            })
+            .then(function(data) {
+              if (data.message) img.src = data.message  // dog
+              if (data.image) img.src = data.image      // fox
+              if (Array.isArray(data)) img.src = data[0].url  // cat
+            })
+            .catch(function(error) {
+              console.log("Fetch error:", error)
+            })
+  }
+
+  select.onchange = fetchAnimal
+  fetchAnimal()
 </script>
 </body>
 </html>
