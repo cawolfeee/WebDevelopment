@@ -39,6 +39,7 @@
               return response.json()
             })
             .then(function(data) {
+              console.log(data)
               if (data.message) img.src = data.message  // dog
               if (data.image) img.src = data.image      // fox
               if (Array.isArray(data)) img.src = data[0].url  // cat
