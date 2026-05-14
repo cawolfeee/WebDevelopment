@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Wordle Category</title>
+</head>
+<body>
+
+<h1>Wordle Category Game:</h1>
+
+<select>
+  <option hidden="">Category Options</option>
+  <option>Sports ⚽️🏈🎾⚾️🏐🏒🏀</option>
+  <option>Foods 🍔🍕🥗🍣🍪🍨🥯</option>
+  <option>Animals 🐶🐷🐢🐥🐠🪼🐝 </option>
+</select>
+
+<br>
+<br>
+<br>
+
+<div id="grid">
+
+  <div class="row">
+    <div class="tile"></div>
+    <div class="tile"></div>
+    <div class="tile"></div>
+    <div class="tile"></div>
+    <div class="tile"></div>
+  </div>
+
+  <div class="row">
+    <div class="tile"></div>
+    <div class="tile"></div>
+    <div class="tile"></div>
+    <div class="tile"></div>
+    <div class="tile"></div>
+  </div>
+
+  <div class="row">
+    <div class="tile"></div>
+    <div class="tile"></div>
+    <div class="tile"></div>
+    <div class="tile"></div>
+    <div class="tile"></div>
+  </div>
+
+  <div class="row">
+    <div class="tile"></div>
+    <div class="tile"></div>
+    <div class="tile"></div>
+    <div class="tile"></div>
+    <div class="tile"></div>
+  </div>
+
+  <div class="row">
+    <div class="tile"></div>
+    <div class="tile"></div>
+    <div class="tile"></div>
+    <div class="tile"></div>
+    <div class="tile"></div>
+  </div>
+
+</div>
+
+</body>
+
+<style>
+  h1 {
+    font-size: 50px;
+    font-family: Georgia, serif;
+    text-shadow: #a044f6 3px 1px 1px;
+    text-align: center;
+    border: 3px #5e1eff solid;
+    padding: 10px;
+    margin: 20px;
+    background-color: #b487eb;
+    color: #e7e4ff;
+    animation: changeColor 0s forwards;
+    animation-delay: 3s;
+    text-align: center;
+    animation: colorCycle 3s infinite;
+  }
+
+  @keyframes colorCycle {
+    0%   { color: #560ed3; }
+    25%  { color: #5728e3; }
+    50%  { color: #723cdf; }
+    75%  { color: #8859ed; }
+    100% { color: #b895f6; }
+  }
+
+  .tile {
+    width: 100px;
+    height: 100px;
+    border: 3px #8963f4 solid;
+    text-align: center;
+  }
+
+  .row {
+    display: flex;
+  }
+
+  #grid {
+    width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  select {
+    font-size: 20px;
+    font-family: Georgia, serif;
+    background-color: #b487eb;
+    color: #e7e4ff;
+    border: 3px #5e1eff solid;
+    padding: 10px;
+    margin: 20px;
+  }
+</style>
+
+<script>
+
+
+</script>
+
+</html>
