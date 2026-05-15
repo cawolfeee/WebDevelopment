@@ -20,7 +20,6 @@
 <br>
 
 <div id="grid">
-
   <div class="row">
     <div class="tile"></div>
     <div class="tile"></div>
@@ -28,7 +27,6 @@
     <div class="tile"></div>
     <div class="tile"></div>
   </div>
-
   <div class="row">
     <div class="tile"></div>
     <div class="tile"></div>
@@ -36,7 +34,6 @@
     <div class="tile"></div>
     <div class="tile"></div>
   </div>
-
   <div class="row">
     <div class="tile"></div>
     <div class="tile"></div>
@@ -44,7 +41,6 @@
     <div class="tile"></div>
     <div class="tile"></div>
   </div>
-
   <div class="row">
     <div class="tile"></div>
     <div class="tile"></div>
@@ -52,7 +48,6 @@
     <div class="tile"></div>
     <div class="tile"></div>
   </div>
-
   <div class="row">
     <div class="tile"></div>
     <div class="tile"></div>
@@ -60,7 +55,6 @@
     <div class="tile"></div>
     <div class="tile"></div>
   </div>
-
 </div>
 
 </body>
@@ -76,9 +70,6 @@
     margin: 20px;
     background-color: #b487eb;
     color: #e7e4ff;
-    animation: changeColor 0s forwards;
-    animation-delay: 3s;
-    text-align: center;
     animation: colorCycle 3s infinite;
   }
 
@@ -94,7 +85,14 @@
     width: 100px;
     height: 100px;
     border: 3px #8963f4 solid;
-    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 48px;
+    font-family: Georgia, serif;
+    font-weight: bold;
+    color: #3a0099;
+    text-transform: uppercase;
   }
 
   .row {
@@ -116,11 +114,35 @@
     padding: 10px;
     margin: 20px;
   }
+
+
+
+
 </style>
 
 <script>
+  let currentRow = 0;
+  let currentTile = 0;
 
+  document.addEventListener("keydown", function(e) {
+    let rows = document.getElementsByClassName('row');
+    let tiles = rows[currentRow].getElementsByClassName('tile');
 
+    if (e.key.length === 1 && currentTile < 5) {
+      tiles[currentTile].textContent = e.key.toUpperCase();
+      currentTile = currentTile + 1;
+    }
+
+    if (e.key === "Backspace" && currentTile > 0) {
+      currentTile--;
+      tiles[currentTile].textContent = "";
+    }
+
+    if (e.key === "Enter" && currentTile === 5 && currentRow < 4) {
+      currentRow++;
+      currentTile = 0;
+    }
+  });
 </script>
 
 </html>
